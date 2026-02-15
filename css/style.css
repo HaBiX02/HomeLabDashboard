@@ -1,0 +1,333 @@
+/* CSS Variables for Theme */
+:root {
+    --bg-color: #0d1117;
+    --card-bg: rgba(22, 27, 34, 0.7);
+    --card-border: rgba(240, 246, 252, 0.1);
+    --text-main: #c9d1d9;
+    --text-accent: #58a6ff;
+    --hover-glow: rgba(56, 139, 253, 0.4);
+    --font-stack: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+    /* Service Colors for subtle branding */
+    --portainer-color: #3f75d5;
+    --pihole-color: #e74c3c;
+    --plex-color: #e5a00d;
+    --grafana-color: #f39c12;
+    --hass-color: #03a9f4;
+    --jellyfin-color: #aa5c9f;
+    --proxmox-color: #e67e22;
+    --nextcloud-color: #0082c9;
+    --syncthing-color: #08c0d0;
+    --overleaf-color: #47ba43;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-stack);
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* Background Animation */
+.background-globes {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.globe {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+    animation: float 20s infinite ease-in-out alternate;
+}
+
+.globe-1 {
+    top: -10%;
+    left: -10%;
+    width: 50vw;
+    height: 50vw;
+    background: radial-gradient(circle, #238636, transparent);
+    animation-delay: 0s;
+}
+
+.globe-2 {
+    bottom: -10%;
+    right: -10%;
+    width: 40vw;
+    height: 40vw;
+    background: radial-gradient(circle, #1f6feb, transparent);
+    animation-delay: -5s;
+}
+
+.globe-3 {
+    top: 40%;
+    left: 40%;
+    width: 30vw;
+    height: 30vw;
+    background: radial-gradient(circle, #8957e5, transparent);
+    animation-delay: -10s;
+    opacity: 0.2;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(20px, 40px) scale(1.1);
+    }
+}
+
+/* Layout */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 2rem;
+    z-index: 1;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.header-content h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.accent {
+    background: linear-gradient(135deg, #58a6ff, #bc8cff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.clock {
+    font-family: 'Courier New', monospace;
+    font-size: 1.2rem;
+    color: var(--text-accent);
+    opacity: 0.8;
+}
+
+/* Search Bar */
+.search-container {
+    position: relative;
+    max-width: 400px;
+    flex-grow: 1;
+}
+
+.search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-main);
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 12px 12px 12px 40px;
+    background-color: rgba(22, 27, 34, 0.5);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+#searchInput:focus {
+    outline: none;
+    border-color: var(--text-accent);
+    box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.2);
+    background-color: rgba(22, 27, 34, 0.8);
+}
+
+/* Grid Layout */
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+}
+
+/* Cards */
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--text-accent);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3), 0 0 0 1px var(--text-accent) inset;
+}
+
+.card:hover .card-icon {
+    transform: scale(1.1);
+}
+
+.card-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+    font-size: 2rem;
+    color: #fff;
+}
+
+/* Specific Service Styling (Optional, can just use general colors) */
+/* Portainer */
+.portainer-bg {
+    color: var(--portainer-color);
+    background: rgba(63, 117, 213, 0.1);
+}
+
+/* Pihole */
+.pihole-bg {
+    color: var(--pihole-color);
+    background: rgba(231, 76, 60, 0.1);
+}
+
+/* Plex */
+.plex-bg {
+    color: var(--plex-color);
+    background: rgba(229, 160, 13, 0.1);
+}
+
+/* Grafana */
+.grafana-bg {
+    color: var(--grafana-color);
+    background: rgba(243, 156, 18, 0.1);
+}
+
+/* Hass */
+.hass-bg {
+    color: var(--hass-color);
+    background: rgba(3, 169, 244, 0.1);
+}
+
+/* Jellyfin */
+.jellyfin-bg {
+    color: var(--jellyfin-color);
+    background: rgba(170, 92, 159, 0.1);
+}
+
+/* Nextcloud */
+.nextcloud-bg {
+    color: var(--nextcloud-color);
+    background: rgba(0, 130, 201, 0.1);
+}
+
+/* Syncthing */
+.syncthing-bg {
+    color: var(--syncthing-color);
+    background: rgba(0, 140, 140, 0.1);
+}
+
+/* Overleaf */
+.overleaf-bg {
+    color: var(--overleaf-color);
+    background: rgba(71, 186, 67, 0.1);
+}
+
+/* Generic */
+.proxmox-bg,
+.transmission-bg {
+    color: var(--text-accent);
+    background: rgba(88, 166, 255, 0.1);
+}
+
+
+.card-info {
+    text-align: center;
+}
+
+.card-info h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: #fff;
+}
+
+.card-info p {
+    font-size: 0.85rem;
+    color: var(--text-main);
+    opacity: 0.7;
+    font-family: 'Courier New', monospace;
+}
+
+/* Footer */
+footer {
+    margin-top: auto;
+    padding-top: 3rem;
+    text-align: center;
+    color: var(--text-main);
+    opacity: 0.5;
+    font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .search-container {
+        max-width: 100%;
+    }
+}
