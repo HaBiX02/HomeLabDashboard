@@ -1,0 +1,16 @@
+[
+    {
+        "name": "Syncthing",
+        "icon": "sync_alt",
+        "port": 8384,
+        "colorClass": "syncthing-bg",
+        "keywords": "syncthing file synchronization"
+    },
+    {
+        "name": "Overleaf",
+        "icon": "article",
+        "port": 80,
+        "colorClass": "overleaf-bg",
+        "keywords": "overleaf latex editor sharelatex"
+    }
+]
