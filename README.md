@@ -1,5 +1,8 @@
 # HomeLab Dashboard
 
+## To-Do
+- [ ] Services should be able to be commands and not only urls (so later i can do `wol {mac}` easily)
+
 A modern, responsive, and glassmorphism-styled dashboard for your local HomeLab services. Built with pure HTML, CSS, and Vanilla JavaScript. No build steps required.
 
 ![Screenshot](img/screenshot.png)
