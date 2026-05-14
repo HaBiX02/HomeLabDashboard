@@ -12,5 +12,13 @@
         "port": 80,
         "colorClass": "overleaf-bg",
         "keywords": "overleaf latex editor sharelatex"
+    },
+    {
+        "name": "Wake PC Escritorio",
+        "icon": "settings_power",
+        "command": "wakeonlan AA:BB:CC:DD:EE:FF",
+        "description": "Encender PC escritorio (WoL)",
+        "colorClass": "hass-bg",
+        "keywords": "wake on lan wol pc desktop encender"
     }
 ]

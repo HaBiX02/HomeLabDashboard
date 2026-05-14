@@ -314,6 +314,66 @@ footer {
     font-size: 0.9rem;
 }
 
+/* Command-type badge */
+.command-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background: rgba(88, 166, 255, 0.15);
+    color: var(--text-accent);
+    border: 1px solid rgba(88, 166, 255, 0.3);
+    text-transform: uppercase;
+    pointer-events: none;
+}
+
+/* Toast notification */
+.toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(120%);
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    z-index: 9999;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.25s ease;
+    opacity: 0;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.toast--visible {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+.toast--info {
+    background: rgba(22, 27, 34, 0.9);
+    color: #c9d1d9;
+}
+
+.toast--success {
+    background: rgba(22, 68, 37, 0.9);
+    color: #56d364;
+    border-color: rgba(86, 211, 100, 0.3);
+}
+
+.toast--error {
+    background: rgba(67, 17, 17, 0.9);
+    color: #ff7b72;
+    border-color: rgba(255, 123, 114, 0.3);
+}
+
 /* Responsive adjustments */
 @media (max-width: 600px) {
     header {
@@ -329,5 +389,16 @@ footer {
 
     .search-container {
         max-width: 100%;
+    }
+
+    .toast {
+        left: 1rem;
+        right: 1rem;
+        transform: translateX(0) translateY(120%);
+        white-space: normal;
+    }
+
+    .toast--visible {
+        transform: translateX(0) translateY(0);
     }
 }
